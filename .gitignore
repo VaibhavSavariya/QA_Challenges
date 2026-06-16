@@ -37,3 +37,18 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Logs
+logs/
+*.log
+
+# Reports
+allure-results/
+allure-report/
+test-output/
+
+# Screenshots
+screenshots/
+
+# OS Files
+Thumbs.db
