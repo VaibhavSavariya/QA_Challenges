@@ -15,6 +15,23 @@ public class Hooks {
         System.out.println("starting......");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
+
+        boolean headless =
+                Boolean.parseBoolean(
+                        System.getProperty(
+                                "headless",
+                                "false"));
+
+        if(headless) {
+            options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--window-size=1920,1080");
+        }
+
+
+
         DriverManager.setDriver(
                 new ChromeDriver(options));
 

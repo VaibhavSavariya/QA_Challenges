@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 //        dryRun = true, // any of the functions are missed in the Step Definition for any Step in Feature File, it will give us the message.
-        features = "src/test/resources/FeatureFiles/LoginChal.feature",
+        features = "src/test/resources/FeatureFiles/ShadowRoot.feature",
         glue = {"OrangeHRM"},
         plugin = {
                 "pretty",
@@ -16,7 +16,5 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = true
 
 )
-
-
-public class LoginChal extends AbstractTestNGCucumberTests {
+public class ShadowRootTest extends AbstractTestNGCucumberTests {
 }
