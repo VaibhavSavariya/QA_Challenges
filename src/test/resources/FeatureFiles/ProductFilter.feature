@@ -1,8 +1,10 @@
+@regression @productFilter
 Feature: Verify Product Filtering and Search
 
   Background:
     Given user navigates to product filter page
 
+  @smoke
   Scenario: Verify Category Filter
     When user selects "Sports" category
     Then all displayed products should belong to "Sports" category

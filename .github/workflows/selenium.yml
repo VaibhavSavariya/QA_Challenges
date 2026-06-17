@@ -6,6 +6,16 @@ on:
       - vaibhav
 
   workflow_dispatch:
+    inputs:
+      test_suite:
+        description: Select the Cucumber test suite
+        required: true
+        default: regression
+        type: choice
+        options:
+          - smoke
+          - regression
+          - sanity
 
 jobs:
   test:
@@ -31,8 +41,20 @@ jobs:
           restore-keys: |
             maven-
 
-      - name: Run Tests
-        run: mvn clean test -Dheadless=true
+      - name: Run Selected Test Suite
+        shell: bash
+        run: |
+          SUITE="${{ github.event.inputs.test_suite }}"
+
+          if [ -z "$SUITE" ]; then
+            SUITE="regression"
+          fi
+
+          echo "Running test suite: $SUITE"
+
+          mvn clean test \
+            -Dheadless=true \
+            "-Dcucumber.filter.tags=@$SUITE"
 
       - name: Upload Reports
         if: always()

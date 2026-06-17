@@ -1,8 +1,10 @@
+@regression @productListing
 Feature: Verify Product Listing and Pagination
 
   Background:
     Given user navigates to product listing page
 
+  @smoke
   Scenario: Verify user can navigate between product pages
     When user clicks page number 2
     Then page number 2 should be active

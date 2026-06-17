@@ -1,8 +1,10 @@
+@regression @login
 Feature: Verify Login Functionality
 
   Background:
     Given user navigates to login challenge page
 
+  @smoke
   Scenario: Verify login with valid Creds
     When user enters valid creds
     Then user should navigates to dashboard page
